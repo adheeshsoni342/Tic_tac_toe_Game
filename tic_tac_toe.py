@@ -1,5 +1,3 @@
-#Implementation of Two Player Tic-Tac-Toe game in Python.
-
 ''' We will make the board using dictionary 
     in which keys will be the location(i.e : top-left,mid-right,etc.)
     and initialliy it's values will be empty space and then after every move 
@@ -25,7 +23,6 @@ def printBoard(board):
     print('-+-+-')
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
 
-# Now we'll write the main function which has all the gameplay functionality.
 def game():
 
     turn = 'X'
@@ -45,61 +42,60 @@ def game():
             print("That place is already filled.\nMove to which place?")
             continue
 
-        # Now we will check if player X or O has won,for every move after 5 moves. 
+        
         if count >= 5:
-            if theBoard['7'] == theBoard['8'] == theBoard['9'] != ' ': # across the top
+            if theBoard['7'] == theBoard['8'] == theBoard['9'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")                
                 break
-            elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ': # across the middle
+            elif theBoard['4'] == theBoard['5'] == theBoard['6'] != ' ':
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break
-            elif theBoard['1'] == theBoard['2'] == theBoard['3'] != ' ': # across the bottom
+            elif theBoard['1'] == theBoard['2'] == theBoard['3'] != ' ':
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break
-            elif theBoard['1'] == theBoard['4'] == theBoard['7'] != ' ': # down the left side
+            elif theBoard['1'] == theBoard['4'] == theBoard['7'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break
-            elif theBoard['2'] == theBoard['5'] == theBoard['8'] != ' ': # down the middle
+            elif theBoard['2'] == theBoard['5'] == theBoard['8'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break
-            elif theBoard['3'] == theBoard['6'] == theBoard['9'] != ' ': # down the right side
+            elif theBoard['3'] == theBoard['6'] == theBoard['9'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break 
-            elif theBoard['7'] == theBoard['5'] == theBoard['3'] != ' ': # diagonal
+            elif theBoard['7'] == theBoard['5'] == theBoard['3'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break
-            elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ': # diagonal
+            elif theBoard['1'] == theBoard['5'] == theBoard['9'] != ' ': 
                 printBoard(theBoard)
                 print("\nGame Over.\n")                
                 print(" **** " +turn + " won. ****")
                 break 
 
-        # If neither X nor O wins and the board is full, we'll declare the result as 'tie'.
+        
         if count == 9:
             print("\nGame Over.\n")                
             print("It's a Tie!!")
 
-        # Now we have to change the player after every move.
+        
         if turn =='X':
             turn = 'O'
         else:
             turn = 'X'        
     
-    # Now we will ask if player wants to restart the game or not.
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":  
         for key in board_keys:
